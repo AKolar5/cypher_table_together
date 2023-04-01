@@ -1,3 +1,5 @@
+import 'package:cypher_table_together/Confirmation.dart';
+import 'package:cypher_table_together/bar.dart';
 import 'package:flutter/material.dart';
 
 const mainGreen = Color(0xFF165740);
@@ -11,6 +13,8 @@ class CreatePage extends StatefulWidget {
 
 class _CreatePage extends State<CreatePage> {
 
+  TimeOfDay time = TimeOfDay(hour: 12, minute: 0);
+  String timeString = " ";
 
   @override
   Widget build(BuildContext context) {
@@ -55,28 +59,74 @@ class _CreatePage extends State<CreatePage> {
             const Padding(
               padding: EdgeInsets.all(20.0),
             ),
-            Row (
-              children: const [
-                Text(
-                  "Choose a Time 🕐",
-                  textAlign: TextAlign.start,
-                  overflow: TextOverflow.clip,
+
+
+            // Row (
+            //   children: const [
+            //     Text(
+            //       "Choose a Time 🕐",
+            //       textAlign: TextAlign.start,
+            //       overflow: TextOverflow.clip,
+            //       style: TextStyle(
+            //         fontWeight: FontWeight.w400,
+            //         fontStyle: FontStyle.normal,
+            //         fontSize: 35,
+            //         color: Color(0xff000000),
+            //       ),
+            //     ),
+            //   ],
+            // ),
+
+            SizedBox(height: 16),
+            ElevatedButton(
+                onPressed: () async {
+                  TimeOfDay? newTime = await showTimePicker(
+                      context: context,
+                      initialTime: time,
+                  );
+                  if (newTime == null) return;
+                  setState(() {
+                    time = newTime;
+                    timeString = time.format(context);
+                  });;
+                  },
+                style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll<Color>(Color.fromARGB(255, 16, 57, 40)), ),
+                child: const Text("Select Time",
                   style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 35,
-                    color: Color(0xff000000),
+                    fontSize: 40,
+                    color: Color(0xffffffff),
                   ),
-                ),
-              ],
+                  ),
             ),
 
             const Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(30.0),
+            ),
+
+            SizedBox(
+              width: 350.0,
+              height: 250.0,
+              child: Card(
+                color: Color(0xFFB9975B),
+                child: Text(
+                      'Max' + ' | ' + '2024' + '\n' + "(" + "He/Him" + ")\n\n" +
+                  "🕓 " + timeString + " - Marketplace", textAlign: TextAlign.start,
+                  style: TextStyle(color: Colors.white, fontSize: 40),
+                ), //Text
+              ), //Card
+            ), //SizedBox
+
+            const Padding(
+              padding: EdgeInsets.all(30.0),
+            ),
+
+            const Text(
+              'Would You Like to Post This?',
+              style: TextStyle(color: Colors.black, fontSize: 30),
             ),
 
             const Padding(
-              padding: EdgeInsets.all(220.0),
+              padding: EdgeInsets.all(20.0),
             ),
 
             Row(
@@ -98,7 +148,10 @@ class _CreatePage extends State<CreatePage> {
                         color: Color(0xff000000),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,MaterialPageRoute(builder: (context) => const BarPage()));
+                    },
                   ),
                   const Padding(
                     padding: EdgeInsets.all(10.0),
@@ -117,7 +170,10 @@ class _CreatePage extends State<CreatePage> {
                         color: Color(0xff000000),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,MaterialPageRoute(builder: (context) => const ConfirmationPage()));
+                    },
                   ),
                 ] // Children
             )
