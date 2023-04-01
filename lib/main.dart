@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cypher_table_together/profile.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +7,10 @@ import 'firebase_options.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import 'package:cypher_table_together/UserManJones.dart';
+
+String? email = '';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -168,19 +173,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // parsing string to make sure it has "@email.wm.edu"
 
-    String? email = userCredential.user?.email;
+    email = userCredential.user?.email;
 
     String? properDomain = "email.wm.edu";
     String domain = "";
 
     int indexOfAt = email!.indexOf('@');
     for (int i = indexOfAt + 1; i < email!.length; i++) {
-        domain += email[i];
+        domain += email![i];
     }
 
     print(domain);
 
     if (domain == properDomain) {
+      //TESTinitializeUserAndPutIntoDatabase();
       Navigator.push(
              context,MaterialPageRoute(builder: (context) => const ProfilePage()));
     }
@@ -191,6 +197,22 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
 
+
+  }
+
+  void TESTinitializeUserAndPutIntoDatabase() {
+      // THIS IS A TEST TEST TEST TEST TEST
+
+
+      var db = FirebaseFirestore.instance;
+
+
+      db.collection("users").doc(email).set({
+        "email": email,
+        "first": "Jim",
+        "pronouns": "He/Him",
+        "social-class": "2024"
+      });
 
   }
 }

@@ -1,6 +1,6 @@
 import 'package:cypher_table_together/Calendar.dart';
 
-class User{
+class UserManJones{
   String wmEmail = '';
   String firstName = '';
   String socialClass = '';
@@ -8,7 +8,7 @@ class User{
 
   Calendar? calendar;
 
-  User(String wmEmaill){
+  UserManJones(String wmEmaill){
     wmEmail = wmEmaill;
     calendar = Calendar();
   }

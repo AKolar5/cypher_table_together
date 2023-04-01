@@ -1,13 +1,13 @@
-import 'package:cypher_table_together/User.dart';
+import 'package:cypher_table_together/UserManJones.dart';
 
 class LunchDate{
 
   DateTime time = DateTime.now();
   String dining_hall = '';
-  User other_person = User('');
+  UserManJones other_person = UserManJones('');
 
 
-  LunchDate(int day, int month, int year, int hour, int minute, String hall, User other){
+  LunchDate(int day, int month, int year, int hour, int minute, String hall, UserManJones other){
     time = DateTime(year, month, day, hour, minute);
     dining_hall = hall;
     other_person = other;

@@ -1,5 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cypher_table_together/bar.dart';
-import 'package:cypher_table_together/User.dart';
+import 'package:cypher_table_together/UserManJones.dart';
 import 'package:flutter/material.dart';
 
 const mainGreen = Color(0xFF165740);
@@ -12,7 +13,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePage extends State<ProfilePage> {
-  User user = User('');
   String dropdownValue = '2023';
   String firstName = '';
   String pronouns = '';
@@ -163,12 +163,14 @@ class _ProfilePage extends State<ProfilePage> {
               ),
               onPressed: () {
 
-                if (user.setUserInfo(firstName, dropdownValue, pronouns)) {
+                if (firstName.isNotEmpty && dropdownValue.isNotEmpty && pronouns.isNotEmpty) {
+                  createUserAndAddtoDatabase("TESTEMAIL@TEST.COM", firstName, dropdownValue, pronouns);
                   Navigator.push(
                       context, MaterialPageRoute(
                       builder: (context) => const BarPage()));
                 }
                 else {
+                  // TO DO: make this pop up on the screeeeen
                   print('invalid');
                 }
               },
@@ -176,5 +178,17 @@ class _ProfilePage extends State<ProfilePage> {
           ] // Children
       ),
     );
+  }
+
+
+  void createUserAndAddtoDatabase(String email, String firstName, String socialClass, String pronouns) {
+    var db = FirebaseFirestore.instance;
+
+    db.collection("users").doc("testemail@testemail.com").set({
+      "email": email,
+      "first": firstName,
+      "pronouns": pronouns,
+      "social-class": socialClass
+    });
   }
 }
