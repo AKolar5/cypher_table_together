@@ -1,3 +1,4 @@
+import 'package:cypher_table_together/home_page.dart';
 import 'package:flutter/material.dart';
 
 const mainGreen = Color(0xFF165740);
@@ -159,7 +160,10 @@ class _ProfilePage extends State<ProfilePage> {
                   color: Color(0xff000000),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,MaterialPageRoute(builder: (context) => const HomePage()));
+              },
             ),
           ] // Children
       ),
