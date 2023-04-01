@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class CalendarPage extends StatelessWidget {
   const CalendarPage({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
