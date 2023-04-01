@@ -1,4 +1,5 @@
 import 'package:cypher_table_together/edit.dart';
+import 'package:cypher_table_together/hall.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -9,9 +10,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    int selectedIndex = 0;
-    List screens = [HomePage(), null, EditPage()];
 
     String createDate(int day) {
       DateTime date = DateTime.now();
@@ -91,7 +89,10 @@ class HomePage extends StatelessWidget {
                     foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                     backgroundColor: MaterialStateProperty.all<Color>(mainGreen),
                   ),
-                  onPressed: () { },
+                  onPressed: () {
+                    Navigator.push(
+                        context,MaterialPageRoute(builder: (context) => const HallPage()));
+                  },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(createDate(0), style: const TextStyle(fontSize: 20)),
@@ -110,7 +111,10 @@ class HomePage extends StatelessWidget {
                       foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                       backgroundColor: MaterialStateProperty.all<Color>(mainGreen),
                     ),
-                    onPressed: () { },
+                    onPressed: () {
+                      Navigator.push(
+                          context,MaterialPageRoute(builder: (context) => const HallPage()));
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(createDate(1), style: const TextStyle(fontSize: 20)),
@@ -129,7 +133,8 @@ class HomePage extends StatelessWidget {
                       foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                       backgroundColor: MaterialStateProperty.all<Color>(mainGreen),
                     ),
-                    onPressed: () { },
+                    onPressed: () { Navigator.push(
+                        context,MaterialPageRoute(builder: (context) => const HallPage()));},
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(createDate(2), style: const TextStyle(fontSize: 20)),
@@ -148,7 +153,10 @@ class HomePage extends StatelessWidget {
                       foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                       backgroundColor: MaterialStateProperty.all<Color>(mainGreen),
                     ),
-                    onPressed: () { },
+                    onPressed: () {
+                      Navigator.push(
+                          context,MaterialPageRoute(builder: (context) => const HallPage()));
+                    },
                     child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(createDate(3), style: const TextStyle(fontSize: 20))
@@ -167,7 +175,10 @@ class HomePage extends StatelessWidget {
                       foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                       backgroundColor: MaterialStateProperty.all<Color>(mainGreen),
                     ),
-                    onPressed: () { },
+                    onPressed: () {
+                      Navigator.push(
+                          context,MaterialPageRoute(builder: (context) => const HallPage()));
+                    },
                     child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(createDate(4), style: const TextStyle(fontSize: 20))
@@ -187,7 +198,10 @@ class HomePage extends StatelessWidget {
                       foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                       backgroundColor: MaterialStateProperty.all<Color>(mainGreen),
                     ),
-                    onPressed: () { },
+                    onPressed: () {
+                      Navigator.push(
+                          context,MaterialPageRoute(builder: (context) => const HallPage()));
+                    },
                     child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(createDate(5), style: const TextStyle(fontSize: 20))
@@ -206,7 +220,10 @@ class HomePage extends StatelessWidget {
                       foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                       backgroundColor: MaterialStateProperty.all<Color>(mainGreen),
                     ),
-                    onPressed: () { },
+                    onPressed: () {
+                      Navigator.push(
+                          context,MaterialPageRoute(builder: (context) => const HallPage()));
+                    },
                     child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(createDate(6), style: const TextStyle(fontSize: 20))

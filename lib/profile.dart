@@ -1,4 +1,5 @@
-import 'package:cypher_table_together/home_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cypher_table_together/bar.dart';
 import 'package:flutter/material.dart';
 
 const mainGreen = Color(0xFF165740);
@@ -76,19 +77,28 @@ class _ProfilePage extends State<ProfilePage> {
             const Padding(
               padding: EdgeInsets.all(30.0),
             ),
-            const Text(
-              "First Name",
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontStyle: FontStyle.normal,
-                fontSize: 35,
-                color: Color(0xff000000),
-              ),
+            Row(
+              children: const [
+                Padding(
+                  padding: EdgeInsets.all(0.0),
+                ),
+                Text(
+                  "First Name",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.normal,
+                    fontSize: 35,
+                    color: Color(0xff000000),
+                  ),
+                ),
+              ],
             ),
             TextField(
               onChanged: (value) {
                 firstName = value;
               },
+              maxLength: 10,
+              textAlign: TextAlign.center,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
               ),
@@ -96,19 +106,28 @@ class _ProfilePage extends State<ProfilePage> {
             const Padding(
               padding: EdgeInsets.all(14.0),
             ),
-            const Text(
-              "Pronouns",
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontStyle: FontStyle.normal,
-                fontSize: 35,
-                color: Color(0xff000000),
-              ),
+            Row(
+              children: const [
+                Padding(
+                  padding: EdgeInsets.all(0.0),
+                ),
+                Text(
+                  "Pronouns",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.normal,
+                    fontSize: 35,
+                    color: Color(0xff000000),
+                  ),
+                ),
+              ],
             ),
             TextField(
               onChanged: (value) {
                 pronouns = value;
               },
+              maxLength: 10,
+              textAlign: TextAlign.center,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
               ),
@@ -145,7 +164,7 @@ class _ProfilePage extends State<ProfilePage> {
               },
             ),
             const Padding(
-              padding: EdgeInsets.all(70.0),
+              padding: EdgeInsets.all(30.0),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -161,12 +180,33 @@ class _ProfilePage extends State<ProfilePage> {
                 ),
               ),
               onPressed: () {
-                Navigator.push(
-                    context,MaterialPageRoute(builder: (context) => const HomePage()));
-              },
+                if (firstName.isNotEmpty && dropdownValue.isNotEmpty && pronouns.isNotEmpty) {
+                  createUserAndAddtoDatabase("TESTEMAIL@TEST.COM", firstName, dropdownValue, pronouns);
+                  Navigator.push(
+                      context, MaterialPageRoute(
+                      builder: (context) => const BarPage()));
+                }
+                else {
+                  // TO DO: make this pop up on the screeeeen
+                  print('invalid');
+                }
+               },
             ),
           ] // Children
       ),
     );
   }
+
+  void createUserAndAddtoDatabase(String email, String firstName, String socialClass, String pronouns) {
+    var db = FirebaseFirestore.instance;
+
+    db.collection("users").doc("testemail@testemail.com").set({
+      "email": email,
+      "first": firstName,
+      "pronouns": pronouns,
+      "social-class": socialClass
+    });
+  }
+
+
 }

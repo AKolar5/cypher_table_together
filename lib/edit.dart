@@ -75,19 +75,28 @@ class _EditPage extends State<EditPage> {
             const Padding(
               padding: EdgeInsets.all(20.0),
             ),
-            const Text(
-              "First Name",
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontStyle: FontStyle.normal,
-                fontSize: 35,
-                color: Color(0xff000000),
-              ),
+            Row(
+              children: const [
+                Padding(
+                  padding: EdgeInsets.all(0.0),
+                ),
+                 Text(
+                  "First Name",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.normal,
+                    fontSize: 35,
+                    color: Color(0xff000000),
+                  ),
+                ),
+              ],
             ),
             TextField(
               onChanged: (value) {
                 firstName = value;
               },
+              maxLength: 10,
+              textAlign: TextAlign.center,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
               ),
@@ -95,19 +104,28 @@ class _EditPage extends State<EditPage> {
             const Padding(
               padding: EdgeInsets.all(14.0),
             ),
-            const Text(
-              "Pronouns",
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontStyle: FontStyle.normal,
-                fontSize: 35,
-                color: Color(0xff000000),
-              ),
+            Row(
+              children: const [
+                Padding(
+                  padding: EdgeInsets.all(0.0),
+                ),
+                Text(
+                  "Pronouns",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.normal,
+                    fontSize: 35,
+                    color: Color(0xff000000),
+                  ),
+                ),
+              ],
             ),
             TextField(
               onChanged: (value) {
                 pronouns = value;
               },
+              maxLength: 10,
+              textAlign: TextAlign.center,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
               ),
@@ -144,7 +162,7 @@ class _EditPage extends State<EditPage> {
               },
             ),
             const Padding(
-              padding: EdgeInsets.all(30.0),
+              padding: EdgeInsets.all(20.0),
             ),
             Row(
               children: [
