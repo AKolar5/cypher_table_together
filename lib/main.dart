@@ -1,9 +1,19 @@
 import 'package:cypher_table_together/profile.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -28,6 +38,11 @@ class MyApp extends StatelessWidget {
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
+
+
+
+
+
 }
 
 class MyHomePage extends StatefulWidget {
@@ -124,13 +139,58 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                      context,MaterialPageRoute(builder: (context) => const ProfilePage()));
+                  signInWithGoogle();
+                  // Navigator.push(
+                  //     context,MaterialPageRoute(builder: (context) => const ProfilePage()));
                 },
               ),
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  signInWithGoogle() async {
+
+
+    GoogleSignInAccount? googleUser= await GoogleSignIn().signIn();
+
+    GoogleSignInAuthentication? googleAuth= await googleUser?.authentication;
+
+    AuthCredential credential= GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken
+    );
+
+
+
+    UserCredential userCredential= await FirebaseAuth.instance.signInWithCredential(credential);
+
+    // parsing string to make sure it has "@email.wm.edu"
+
+    String? email = userCredential.user?.email;
+
+    String? properDomain = "email.wm.edu";
+    String domain = "";
+
+    int indexOfAt = email!.indexOf('@');
+    for (int i = indexOfAt + 1; i < email!.length; i++) {
+        domain += email[i];
+    }
+
+    print(domain);
+
+    if (domain == properDomain) {
+      Navigator.push(
+             context,MaterialPageRoute(builder: (context) => const ProfilePage()));
+    }
+
+    else {
+      await GoogleSignIn().signOut();
+      FirebaseAuth.instance.signOut();
+    }
+
+
+
   }
 }
