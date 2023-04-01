@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "991331695587",
+    "project_id": "tabletogether-e18a5",
+    "storage_bucket": "tabletogether-e18a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991331695587:android:1f1b28b0102a8c6711bed6",
+        "android_client_info": {
+          "package_name": "com.example.cypher_table_together"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991331695587-sp1fjapbqju7nst82bnhn61krqu01gvc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBps6xSG6w37c8mRVE8vGu21ARZBQcLF4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "991331695587-sp1fjapbqju7nst82bnhn61krqu01gvc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "991331695587-cg9vrag0f2a8ivr33nqpjlfvn4nlgop0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cypherTableTogether"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
