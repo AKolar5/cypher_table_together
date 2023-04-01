@@ -20,7 +20,7 @@ class _BarPage extends State<BarPage> {
   Widget build(BuildContext context) {
 
     int selectedIndex = 0;
-    List screens = [HomePage(), CalendarPage(), EditPage()];
+    List screens = [HomePage(), null, EditPage()];
 
     void onTap(int index) {
       setState(() {
