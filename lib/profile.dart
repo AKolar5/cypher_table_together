@@ -1,4 +1,5 @@
-import 'package:cypher_table_together/home_page.dart';
+import 'package:cypher_table_together/bar.dart';
+import 'package:cypher_table_together/User.dart';
 import 'package:flutter/material.dart';
 
 const mainGreen = Color(0xFF165740);
@@ -11,7 +12,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePage extends State<ProfilePage> {
-
+  User user = User('');
   String dropdownValue = '2023';
   String firstName = '';
   String pronouns = '';
@@ -161,8 +162,15 @@ class _ProfilePage extends State<ProfilePage> {
                 ),
               ),
               onPressed: () {
-                Navigator.push(
-                    context,MaterialPageRoute(builder: (context) => const HomePage()));
+
+                if (user.setUserInfo(firstName, dropdownValue, pronouns)) {
+                  Navigator.push(
+                      context, MaterialPageRoute(
+                      builder: (context) => const BarPage()));
+                }
+                else {
+                  print('invalid');
+                }
               },
             ),
           ] // Children
