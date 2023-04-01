@@ -1,18 +1,17 @@
+import 'package:cypher_table_together/edit.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 const mainGreen = Color(0xFF165740);
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePage();
-}
-
-class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+
+    int selectedIndex = 0;
+    List screens = [HomePage(), null, EditPage()];
 
     String createDate(int day) {
       DateTime date = DateTime.now();
@@ -25,11 +24,8 @@ class _HomePage extends State<HomePage> {
 
     return Scaffold(
 
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-
-        child: Column(
+      body:
+        Column(
           children: <Widget>[
             const Padding(
               padding: EdgeInsets.all(25.0),
@@ -219,17 +215,8 @@ class _HomePage extends State<HomePage> {
                 ),
               ),
 
-
             ],
           ),
-        ),
-        bottomNavigationBar: NavigationBar(
-          destinations: const [
-            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-            NavigationDestination(icon: Icon(Icons.calendar_month), label: 'Calendar'),
-            NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
-          ],
-        )
       );
   }
 }

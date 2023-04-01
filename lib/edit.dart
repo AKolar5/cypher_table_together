@@ -1,18 +1,16 @@
-import 'package:cypher_table_together/bar.dart';
-import 'package:cypher_table_together/User.dart';
 import 'package:flutter/material.dart';
 
 const mainGreen = Color(0xFF165740);
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class EditPage extends StatefulWidget {
+  const EditPage({Key? key}) : super(key: key);
 
   @override
-  State<ProfilePage> createState() => _ProfilePage();
+  State<EditPage> createState() => _EditPage();
 }
 
-class _ProfilePage extends State<ProfilePage> {
-  User user = User('');
+class _EditPage extends State<EditPage> {
+
   String dropdownValue = '2023';
   String firstName = '';
   String pronouns = '';
@@ -61,10 +59,10 @@ class _ProfilePage extends State<ProfilePage> {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.all(14.0),
+              padding: EdgeInsets.all(20.0),
             ),
             const Text(
-              "Create Your Profile 😀",
+              "Edit Your Profile 🔧",
               textAlign: TextAlign.start,
               overflow: TextOverflow.clip,
               style: TextStyle(
@@ -75,7 +73,7 @@ class _ProfilePage extends State<ProfilePage> {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.all(30.0),
+              padding: EdgeInsets.all(20.0),
             ),
             const Text(
               "First Name",
@@ -146,33 +144,50 @@ class _ProfilePage extends State<ProfilePage> {
               },
             ),
             const Padding(
-              padding: EdgeInsets.all(70.0),
+              padding: EdgeInsets.all(30.0),
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(
-                      300, 80) // put the width and height you want
-              ),
-              child: const Text('Accept!',
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontStyle: FontStyle.normal,
-                  fontSize: 35,
-                  color: Color(0xff000000),
+            Row(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.all(30.0),
                 ),
-              ),
-              onPressed: () {
-
-                if (user.setUserInfo(firstName, dropdownValue, pronouns)) {
-                  Navigator.push(
-                      context, MaterialPageRoute(
-                      builder: (context) => const BarPage()));
-                }
-                else {
-                  print('invalid');
-                }
-              },
-            ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(
+                          100, 80), // put the width and height you want
+                      backgroundColor: Colors.red
+                  ),
+                  child: const Text('Cancel',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 35,
+                      color: Color(0xff000000),
+                    ),
+                  ),
+                  onPressed: () {},
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(10.0),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(
+                          100, 80), // put the width and height you want
+                      backgroundColor: Colors.green
+                  ),
+                  child: const Text('Accept',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 35,
+                      color: Color(0xff000000),
+                    ),
+                  ),
+                  onPressed: () {},
+                ),
+              ] // Children
+            )
           ] // Children
       ),
     );
