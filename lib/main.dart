@@ -1,4 +1,3 @@
-import 'package:cypher_table_together/edit.dart';
 import 'package:cypher_table_together/profile.dart';
 import 'package:flutter/material.dart';
 
