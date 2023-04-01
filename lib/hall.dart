@@ -1,13 +1,14 @@
 import 'package:cypher_table_together/Postings.dart';
 import 'package:cypher_table_together/bar.dart';
-import 'package:cypher_table_together/home_page.dart';
 import 'package:flutter/material.dart';
 
 const mainGreen = Color(0xFF165740);
 
 class HallPage extends StatelessWidget {
-  const HallPage({super.key});
+  // const HallPage({super.key});
 
+  String? email;
+  HallPage({this.email});
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +90,7 @@ class HallPage extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.push(
-                        context,MaterialPageRoute(builder: (context) => const PostingsPage()));
+                        context,MaterialPageRoute(builder: (context) => PostingsPage(email: email)));
                   },
                   child: const Padding(
                     padding: EdgeInsets.all(8.0),
@@ -111,7 +112,7 @@ class HallPage extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.push(
-                        context,MaterialPageRoute(builder: (context) => const PostingsPage()));
+                        context,MaterialPageRoute(builder: (context) => PostingsPage(email: email)));
                   },
                   child: const Padding(
                     padding: EdgeInsets.all(8.0),
@@ -133,7 +134,7 @@ class HallPage extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.push(
-                        context,MaterialPageRoute(builder: (context) => const PostingsPage()));
+                        context,MaterialPageRoute(builder: (context) => PostingsPage(email: email)));
                   },
                   child: const Padding(
                     padding: EdgeInsets.all(8.0),
@@ -163,7 +164,7 @@ class HallPage extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(
-                    context,MaterialPageRoute(builder: (context) => BarPage()));
+                    context,MaterialPageRoute(builder: (context) => BarPage(email: email)));
               },
             ),
 

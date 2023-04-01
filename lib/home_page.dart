@@ -1,4 +1,3 @@
-import 'package:cypher_table_together/edit.dart';
 import 'package:cypher_table_together/hall.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -94,7 +93,7 @@ class HomePage extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.push(
-                        context,MaterialPageRoute(builder: (context) => const HallPage()));
+                        context,MaterialPageRoute(builder: (context) => HallPage(email: email)));
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -116,7 +115,7 @@ class HomePage extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const HallPage()));
+                          context,MaterialPageRoute(builder: (context) => HallPage(email: email)));
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -136,8 +135,10 @@ class HomePage extends StatelessWidget {
                       foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                       backgroundColor: MaterialStateProperty.all<Color>(mainGreen),
                     ),
-                    onPressed: () { Navigator.push(
-                        context,MaterialPageRoute(builder: (context) => const HallPage()));},
+                    onPressed: () {
+                      Navigator.push(
+                          context,MaterialPageRoute(builder: (context) => HallPage(email: email)));
+                      },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(createDate(2), style: const TextStyle(fontSize: 20)),
@@ -158,7 +159,7 @@ class HomePage extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const HallPage()));
+                          context,MaterialPageRoute(builder: (context) => HallPage(email: email)));
                     },
                     child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -180,7 +181,7 @@ class HomePage extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const HallPage()));
+                          context,MaterialPageRoute(builder: (context) => HallPage(email: email)));
                     },
                     child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -203,7 +204,7 @@ class HomePage extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const HallPage()));
+                          context,MaterialPageRoute(builder: (context) => HallPage(email: email)));
                     },
                     child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -225,7 +226,7 @@ class HomePage extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const HallPage()));
+                          context,MaterialPageRoute(builder: (context) => HallPage(email: email)));
                     },
                     child: Padding(
                         padding: const EdgeInsets.all(8.0),

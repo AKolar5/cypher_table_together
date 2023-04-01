@@ -1,6 +1,6 @@
-import 'package:cypher_table_together/calendar.dart';
 import 'package:cypher_table_together/edit.dart';
 import 'package:cypher_table_together/home_page.dart';
+import 'package:cypher_table_together/schedule.dart';
 import 'package:flutter/material.dart';
 
 const mainGreen = Color(0xFF165740);
@@ -23,8 +23,7 @@ class _BarPage extends State<BarPage> {
   @override
   Widget build(BuildContext context) {
 
-    int selectedIndex = 0;
-    List screens = [HomePage(email: email), null, EditPage()];
+    List screens = [HomePage(email: email), SchedulePage(), EditPage()];
 
     void onTap(int index) {
       setState(() {

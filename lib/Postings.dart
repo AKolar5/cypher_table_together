@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 const mainGreen = Color(0xFF165740);
 
 class PostingsPage extends StatelessWidget {
-  const PostingsPage({super.key});
+  // const PostingsPage({super.key});
+
+  String? email;
+  PostingsPage({this.email});
 
 
   @override
@@ -83,7 +86,7 @@ class PostingsPage extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(
-                    context,MaterialPageRoute(builder: (context) => const CreatePage()));
+                    context,MaterialPageRoute(builder: (context) => CreatePage(email: email)));
               },
             ),
 
@@ -108,7 +111,7 @@ class PostingsPage extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(
-                    context,MaterialPageRoute(builder: (context) => BarPage()));
+                    context,MaterialPageRoute(builder: (context) => BarPage(email: email)));
               },
             ),
 

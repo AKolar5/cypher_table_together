@@ -5,13 +5,19 @@ import 'package:flutter/material.dart';
 const mainGreen = Color(0xFF165740);
 
 class CreatePage extends StatefulWidget {
-  const CreatePage({Key? key}) : super(key: key);
+  // const CreatePage({Key? key}) : super(key: key);
+
+  String? email;
+  CreatePage({this.email});
 
   @override
-  State<CreatePage> createState() => _CreatePage();
+  State<CreatePage> createState() => _CreatePage(email!);
 }
 
 class _CreatePage extends State<CreatePage> {
+
+  String email;
+  _CreatePage(this.email);
 
   TimeOfDay time = TimeOfDay(hour: 12, minute: 0);
   String timeString = " ";
@@ -150,7 +156,7 @@ class _CreatePage extends State<CreatePage> {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const BarPage()));
+                          context,MaterialPageRoute(builder: (context) => BarPage(email: email)));
                     },
                   ),
                   const Padding(
@@ -172,7 +178,7 @@ class _CreatePage extends State<CreatePage> {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => const ConfirmationPage()));
+                          context,MaterialPageRoute(builder: (context) => ConfirmationPage(email: email)));
                     },
                   ),
                 ] // Children

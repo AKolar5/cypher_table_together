@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 const mainGreen = Color(0xFF165740);
 
 class ConfirmationPage extends StatelessWidget {
-  const ConfirmationPage({super.key});
+  // const ConfirmationPage({super.key});
+
+  String? email;
+  ConfirmationPage({this.email});
 
 
   @override
@@ -84,7 +87,7 @@ class ConfirmationPage extends StatelessWidget {
               onPressed: () {
                   Navigator.push(
                       context, MaterialPageRoute(
-                      builder: (context) => const BarPage()));
+                      builder: (context) =>  BarPage(email: email,)));
                 }
             ),
           ]),

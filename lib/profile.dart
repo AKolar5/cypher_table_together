@@ -193,7 +193,7 @@ class _ProfilePage extends State<ProfilePage> {
                       builder: (context) => BarPage()));
                 }
                 else {
-                  // TO DO: make this pop up on the screeeeen
+                  // TO DO: make this pop up on the screen
                   print('invalid');
                 }
                },
