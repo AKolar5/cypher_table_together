@@ -7,13 +7,17 @@ const mainGreen = Color(0xFF165740);
 //comment
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  String? email;
+  ProfilePage({this.email});
 
   @override
-  State<ProfilePage> createState() => _ProfilePage();
+  State<ProfilePage> createState() => _ProfilePage(email);
 }
 
 class _ProfilePage extends State<ProfilePage> {
+
+  String? email;
+  _ProfilePage(this.email);
 
   String dropdownValue = '2023';
   String firstName = '';
@@ -183,10 +187,10 @@ class _ProfilePage extends State<ProfilePage> {
               ),
               onPressed: () {
                 if (firstName.isNotEmpty && dropdownValue.isNotEmpty && pronouns.isNotEmpty) {
-                  createUserAndAddtoDatabase("TESTEMAIL@TEST.COM", firstName, dropdownValue, pronouns);
+                  createUserAndAddtoDatabase(email, firstName, dropdownValue, pronouns);
                   Navigator.push(
                       context, MaterialPageRoute(
-                      builder: (context) => const BarPage()));
+                      builder: (context) => BarPage()));
                 }
                 else {
                   // TO DO: make this pop up on the screeeeen
@@ -199,10 +203,10 @@ class _ProfilePage extends State<ProfilePage> {
     );
   }
 
-  void createUserAndAddtoDatabase(String email, String firstName, String socialClass, String pronouns) {
+  void createUserAndAddtoDatabase(String? email, String firstName, String socialClass, String pronouns) {
     var db = FirebaseFirestore.instance;
 
-    db.collection("users").doc("testemail@testemail.com").set({
+    db.collection("users").doc(email).set({
       "email": email,
       "first": firstName,
       "pronouns": pronouns,
