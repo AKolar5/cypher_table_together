@@ -34,9 +34,7 @@ class _HomePage extends State<HomePage> {
           // horizontal).
 
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-
               const Padding(
                 padding: EdgeInsets.all(25.0),
               ),
@@ -71,7 +69,9 @@ class _HomePage extends State<HomePage> {
                 ),
               ),
 
-
+              const Padding(
+                padding: EdgeInsets.all(25.0),
+              ),
 
               SizedBox(
                 width: 300.0,

@@ -1,3 +1,5 @@
+import 'package:cypher_table_together/edit.dart';
+import 'package:cypher_table_together/profile.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -48,18 +50,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,15 +60,40 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
+            children: [
+              const Padding(
+              padding: EdgeInsets.all(25.0),
+            ),
+            Container(
+              margin: EdgeInsets.zero,
+              padding: EdgeInsets.zero,
+              width: 500,
+              height: 100,
+              decoration: BoxDecoration(
+                color: const Color(0xff165740),
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.zero,
+                border: Border.all(color: const Color(0x4d9e9e9e), width: 1),
+              ),
+              child: const Align(
+                alignment: Alignment.center,
+                child: Text(
+                  "TableTogether",
+                  textAlign: TextAlign.start,
+                  overflow: TextOverflow.clip,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.normal,
+                    fontSize: 35,
+                    color: Color(0xffffffff),
+                  ),
+                ),
+              ),
+            ),
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -93,22 +108,29 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+              const Padding(
+                padding: EdgeInsets.all(150.0),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(
+                        300, 80) // put the width and height you want
+                ),
+                child: const Text('Sign in with Google!',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontStyle: FontStyle.normal,
+                    fontSize: 35,
+                    color: Color(0xff000000),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                      context,MaterialPageRoute(builder: (context) => const ProfilePage()));
+                },
+              ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
