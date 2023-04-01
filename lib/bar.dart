@@ -6,13 +6,17 @@ import 'package:flutter/material.dart';
 const mainGreen = Color(0xFF165740);
 
 class BarPage extends StatefulWidget {
-  const BarPage({Key? key}) : super(key: key);
+  String? email;
+  BarPage({this.email});
 
   @override
-  State<BarPage> createState() => _BarPage();
+  State<BarPage> createState() => _BarPage(email!);
 }
 
 class _BarPage extends State<BarPage> {
+
+  String email;
+  _BarPage(this.email);
 
   int currentIndex = 0;
 
@@ -20,7 +24,7 @@ class _BarPage extends State<BarPage> {
   Widget build(BuildContext context) {
 
     int selectedIndex = 0;
-    List screens = [HomePage(), null, EditPage()];
+    List screens = [HomePage(email: email), null, EditPage()];
 
     void onTap(int index) {
       setState(() {

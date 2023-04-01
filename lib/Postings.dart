@@ -108,7 +108,7 @@ class PostingsPage extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(
-                    context,MaterialPageRoute(builder: (context) => const BarPage()));
+                    context,MaterialPageRoute(builder: (context) => BarPage()));
               },
             ),
 

@@ -6,7 +6,10 @@ import 'package:intl/intl.dart';
 const mainGreen = Color(0xFF165740);
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  //const HomePage({super.key});
+
+  String? email;
+  HomePage({this.email});
 
   @override
   Widget build(BuildContext context) {

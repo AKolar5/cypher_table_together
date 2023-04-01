@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cypher_table_together/home_page.dart';
 import 'package:cypher_table_together/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:cypher_table_together/bar.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -186,9 +188,18 @@ class _MyHomePageState extends State<MyHomePage> {
     print(domain);
 
     if (domain == properDomain) {
-      //TESTinitializeUserAndPutIntoDatabase();
-      Navigator.push(
-             context,MaterialPageRoute(builder: (context) => const ProfilePage()));
+
+      if (await emailExists(email)){
+        Navigator.push(
+            context,MaterialPageRoute(builder: (context) => BarPage(email : email)));
+      }
+
+      else{
+        //TESTinitializeUserAndPutIntoDatabase();
+        Navigator.push(
+            context,MaterialPageRoute(builder: (context) => ProfilePage(email : email)));
+      }
+
     }
 
     else {
@@ -200,11 +211,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   }
 
+  var db = FirebaseFirestore.instance;
   void TESTinitializeUserAndPutIntoDatabase() {
       // THIS IS A TEST TEST TEST TEST TEST
 
 
-      var db = FirebaseFirestore.instance;
+
 
 
       db.collection("users").doc(email).set({
@@ -215,4 +227,13 @@ class _MyHomePageState extends State<MyHomePage> {
       });
 
   }
+
+  Future<bool> emailExists(String? email) async{
+    final snapshot = await db.collection("users").where("email", isEqualTo: email).get();
+    if (snapshot.size > 0){
+      return true;
+    }
+    return false;
+  }
+
 }
