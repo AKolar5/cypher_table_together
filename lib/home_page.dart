@@ -93,7 +93,7 @@ class HomePage extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.push(
-                        context,MaterialPageRoute(builder: (context) => HallPage(email: email)));
+                        context,MaterialPageRoute(builder: (context) => HallPage(email: email, date: createDate(0))));
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -115,7 +115,7 @@ class HomePage extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => HallPage(email: email)));
+                          context,MaterialPageRoute(builder: (context) => HallPage(email: email, date: createDate(1))));
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -137,7 +137,7 @@ class HomePage extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => HallPage(email: email)));
+                          context,MaterialPageRoute(builder: (context) => HallPage(email: email, date: createDate(2))));
                       },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -159,7 +159,7 @@ class HomePage extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => HallPage(email: email)));
+                          context,MaterialPageRoute(builder: (context) => HallPage(email: email, date: createDate(3))));
                     },
                     child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -181,7 +181,7 @@ class HomePage extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => HallPage(email: email)));
+                          context,MaterialPageRoute(builder: (context) => HallPage(email: email, date: createDate(4))));
                     },
                     child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -204,7 +204,7 @@ class HomePage extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => HallPage(email: email)));
+                          context,MaterialPageRoute(builder: (context) => HallPage(email: email, date: createDate(5))));
                     },
                     child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -226,7 +226,7 @@ class HomePage extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,MaterialPageRoute(builder: (context) => HallPage(email: email)));
+                          context,MaterialPageRoute(builder: (context) => HallPage(email: email, date: createDate(6))));
                     },
                     child: Padding(
                         padding: const EdgeInsets.all(8.0),

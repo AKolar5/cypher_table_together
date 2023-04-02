@@ -12,6 +12,7 @@ class ProfilePage extends StatefulWidget {
 
   @override
   State<ProfilePage> createState() => _ProfilePage(email);
+
 }
 
 class _ProfilePage extends State<ProfilePage> {
@@ -201,6 +202,7 @@ class _ProfilePage extends State<ProfilePage> {
           ] // Children
       ),
     );
+    throw UnimplementedError();
   }
 
   void createUserAndAddtoDatabase(String? email, String firstName, String socialClass, String pronouns) {

@@ -8,7 +8,8 @@ class HallPage extends StatelessWidget {
   // const HallPage({super.key});
 
   String? email;
-  HallPage({this.email});
+  String? date;
+  HallPage({this.email, this.date});
 
   @override
   Widget build(BuildContext context) {
@@ -64,11 +65,14 @@ class HallPage extends StatelessWidget {
                 color: Color(0xff000000),
               ),
             ),
-            const Text(
-              "",
+            const Padding(
+              padding: EdgeInsets.all(10.0),
+            ),
+            Text(
+              date!,
               textAlign: TextAlign.start,
               overflow: TextOverflow.clip,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.w400,
                 fontStyle: FontStyle.normal,
                 fontSize: 35,
@@ -76,7 +80,7 @@ class HallPage extends StatelessWidget {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(10.0),
             ),
             SizedBox(
               width: 300.0,
@@ -145,7 +149,7 @@ class HallPage extends StatelessWidget {
             ),
 
             const Padding(
-              padding: EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(10.0),
             ),
 
             ElevatedButton(

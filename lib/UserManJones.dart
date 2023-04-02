@@ -1,6 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cypher_table_together/Calendar.dart';
 
 class UserManJones{
+
+  final CollectionReference profileList =
+  FirebaseFirestore.instance.collection('Users');
+
   String wmEmail = '';
   String firstName = '';
   String socialClass = '';
@@ -33,6 +38,22 @@ class UserManJones{
 
     return true;
 
+  }
+
+  Future getUsersList() async {
+    List itemsList = [];
+
+    try {
+      await profileList.get().then((querySnapshot) {
+        querySnapshot.docs.forEach((element) {
+          itemsList.add(element.data);
+        });
+      });
+      return itemsList;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
   }
 
   String getFirstName(){

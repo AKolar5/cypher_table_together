@@ -127,8 +127,9 @@ class _CreatePage extends State<CreatePage> {
             ),
 
             const Text(
-              'Would You Like to Post This?',
+              'Would You Like to Make This Posting Public?',
               style: TextStyle(color: Colors.black, fontSize: 30),
+              textAlign: TextAlign.center,
             ),
 
             const Padding(

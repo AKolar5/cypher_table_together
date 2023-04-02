@@ -80,7 +80,7 @@ class _EditPage extends State<EditPage> {
                 Padding(
                   padding: EdgeInsets.all(0.0),
                 ),
-                 Text(
+                Text(
                   "First Name",
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
@@ -165,46 +165,46 @@ class _EditPage extends State<EditPage> {
               padding: EdgeInsets.all(20.0),
             ),
             Row(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(30.0),
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(
-                          100, 80), // put the width and height you want
-                      backgroundColor: Colors.red
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(30.0),
                   ),
-                  child: const Text('Cancel',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 35,
-                      color: Color(0xff000000),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(
+                            100, 80), // put the width and height you want
+                        backgroundColor: Colors.red
                     ),
-                  ),
-                  onPressed: () {},
-                ),
-                const Padding(
-                  padding: EdgeInsets.all(10.0),
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(
-                          100, 80), // put the width and height you want
-                      backgroundColor: Colors.green
-                  ),
-                  child: const Text('Accept',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 35,
-                      color: Color(0xff000000),
+                    child: const Text('Cancel',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.normal,
+                        fontSize: 35,
+                        color: Color(0xff000000),
+                      ),
                     ),
+                    onPressed: () {},
                   ),
-                  onPressed: () {},
-                ),
-              ] // Children
+                  const Padding(
+                    padding: EdgeInsets.all(10.0),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(
+                            100, 80), // put the width and height you want
+                        backgroundColor: Colors.green
+                    ),
+                    child: const Text('Accept',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.normal,
+                        fontSize: 35,
+                        color: Color(0xff000000),
+                      ),
+                    ),
+                    onPressed: () {},
+                  ),
+                ] // Children
             )
           ] // Children
       ),
